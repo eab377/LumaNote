@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 3;
     public Rigidbody playerRigidbody;
     public Transform playerTransform;
-
+    public bool moveLeft;
+    public bool cursorControl = false;
+    public int sensitivity = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(cursorControl)
+        {
+            playerTransform.position += Vector3.ClampMagnitude(new Vector3(Input.mousePosition.x * sensitivity, 0, 0), 2);
+        }
+
         bool moveLeft = (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A));
+        this.moveLeft = moveLeft;
         bool moveRight = (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D));
 
         if (moveLeft ^ moveRight)
