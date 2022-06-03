@@ -69,6 +69,16 @@ public class AsteroidSpawnerTest : MonoBehaviour
             ast.transform.SetParent(this.GetComponent<Transform>());
         }
         */
+        int rand = Random.Range(0, 3);
+        if (rand == 1)
+        {
+            numberSpawned += 1;
+            if (numberSpawned == 8)
+            {
+                numberSpawned = 0;
+            }
+            return;
+        }
         int xPos = Random.Range(-2, 3);
         if(numberSpawned == 0)
         {
@@ -84,15 +94,19 @@ public class AsteroidSpawnerTest : MonoBehaviour
         }
         else if (numberSpawned == 2)
         {
+            
             yPos = -0.5f;
             GameObject ast = Instantiate(asteroid, new Vector3(xPos, yPos, spawnPoint.position.z), spawnPoint.rotation);
             ast.transform.SetParent(this.GetComponent<Transform>());
+            
         }
         else if(numberSpawned == 3)
         {
+            
             yPos = -1.5f;
             GameObject ast = Instantiate(asteroid, new Vector3(xPos, yPos, spawnPoint.position.z), spawnPoint.rotation);
             ast.transform.SetParent(this.GetComponent<Transform>());
+            
         }
         else if (numberSpawned == 4)
         {
@@ -102,15 +116,19 @@ public class AsteroidSpawnerTest : MonoBehaviour
         }
         else if (numberSpawned == 5)
         {
+            
             yPos = -1f;
             GameObject ast = Instantiate(asteroid, new Vector3(xPos, yPos, spawnPoint.position.z), spawnPoint.rotation);
             ast.transform.SetParent(this.GetComponent<Transform>());
+            
         }
         else if (numberSpawned == 6)
         {
+            
             yPos = 0.5f;
             GameObject ast = Instantiate(asteroid, new Vector3(xPos, yPos, spawnPoint.position.z), spawnPoint.rotation);
             ast.transform.SetParent(this.GetComponent<Transform>());
+            
         }
 
 
